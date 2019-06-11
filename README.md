@@ -1,5 +1,10 @@
 # SkyBetEventsTest
 
+System Requirements
+
+Docker
+Run the API(Instructions are on the email)
+
 Run The Test :
 mvn clean test
 
