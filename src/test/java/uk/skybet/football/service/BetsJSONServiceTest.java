@@ -15,6 +15,7 @@ public class BetsJSONServiceTest {
 	
 	private BetsJSONService service = null;
 	private Root root;
+	private static String FOOTBALL_URL = "http://localhost:8888/football/live";
 
 	@Before
 	public void setUp() {
@@ -23,7 +24,7 @@ public class BetsJSONServiceTest {
 	
 	@Test
 	public void readEventsValidTest() throws FileNotFoundException, IOException {
-		root = service.readEvents("http://localhost:8888/football/live?primaryMarkets=true");
+		root = service.readEvents(FOOTBALL_URL+"?primaryMarkets=true");
 		assertNotNull(root);
 		assertEquals(true, root.getEvents().size()>0);
 
@@ -31,7 +32,7 @@ public class BetsJSONServiceTest {
 	
 	@Test
 	public void readEventsTestValid_Input_DataPrimaryMarketsFalse() throws FileNotFoundException, IOException {
-		root = service.readEvents("http://localhost:8888/football/live?primaryMarkets=false");
+		root = service.readEvents(FOOTBALL_URL+"?primaryMarkets=false");
 		assertNotNull(root);
 		assertEquals(true, root.getEvents().size()>0);
 
@@ -39,7 +40,7 @@ public class BetsJSONServiceTest {
 	
 	@Test(expected = FileNotFoundException.class)
 	public void readEventsTestInValid_URL_throws_FileNotFoundException() throws FileNotFoundException, IOException {
-		root = service.readEvents("http://localhost:8888/football/IN_VLAID");
+		root = service.readEvents(FOOTBALL_URL+"INVALID");
 		assertNotNull(root);
 		assertEquals(true, root.getEvents().size()>0);
 
