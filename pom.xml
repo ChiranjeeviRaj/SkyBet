@@ -4,9 +4,6 @@
   <artifactId>SkyBet-Tech-Test</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
-<properties>
-        <vertx.scope>compile</vertx.scope>
-    </properties>
     <dependencies>
 
 		<dependency>
